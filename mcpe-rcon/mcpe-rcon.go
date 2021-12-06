@@ -80,7 +80,7 @@ func (c *MCConn) Authenticate() error {
 
 	// If the credentials were bad, throw error.
 	if head.RequestID == BadAuth {
-		return errors.New("не верный пароль")
+		return errors.New("неверный пароль")
 	}
 
 	return nil
