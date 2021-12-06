@@ -14,10 +14,11 @@ func handleMessage(obj events.MessageNewObject, userid, peerid int, message stri
 		} else {
 			helpmessage := "Доступные команды для Вашей роли (" + getRoleName(role) + ")\n"
 			switch role {
-			case ROLE_MODERATOR:
-				helpmessage += "/kick <ник> - кикнуть игрока"
 			case ROLE_ADMIN:
-				helpmessage += "/kick <ник> - кикнуть игрока\n/ban <ник> [причина] - забанить игрока"
+				helpmessage += "/ban <ник> [причина] - забанить игрока\n"
+				fallthrough //+права модера
+			case ROLE_MODERATOR:
+				helpmessage += "/kick <ник> - кикнуть игрока\n"
 			}
 			sendTo(peerid, helpmessage)
 		}
