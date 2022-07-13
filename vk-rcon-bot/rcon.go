@@ -24,7 +24,7 @@ func SendRCONCommand(cmd string) (string, error) {
 func init(){
 	RconConnection = new(mcpercon.MCConn)
 	if err := RconConnection.Open(SERVER_IP, RCON_PASS); err != nil {
-		log.Fatalln("Не удалось подключится к RCON:", err)
+		log.Fatalln("Не удалось подключиться к RCON:", err)
 	}
 
 	if err := RconConnection.Authenticate(); err != nil {
